@@ -1,0 +1,225 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amssymb, amsmath, amsthm, mathrsfs}
+\usepackage[left=1.0in,right=1.0in,top=1.0in,bottom=1.0in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{calc}
+\usepackage[inline,shortlabels]{enumitem}
+\usepackage{changepage}
+\usepackage{booktabs}
+\usepackage{capt-of}
+\usepackage{subcaption}
+\usepackage[leftcaption]{sidecap}
+\usepackage[numbers]{natbib}
+\usepackage{times}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{lineno}
+\usepackage{xpatch}
+\xpatchcmd\swappedhead{~}{.~}{}{}
+\allowdisplaybreaks
+
+\newtheoremstyle{mythm}
+{}                % Space above
+{}                % Space below
+{\itshape}        % Theorem body font % (default is "\upshape")
+{1.5em}                % Indent amount
+{\scshape}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{0.5em}               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{mythm}
+
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newtheoremstyle{mydef}
+{}                % Space above
+{}                % Space below
+{}        % Theorem body font % (default is "\upshape")
+{1.5em}                % Indent amount
+{\scshape}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{0.5em}               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{mydef}
+
+\newtheorem{example}[theorem]{Example}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+\item\relax
+  {\hspace{1.5em}\itshape
+    #1\@addpunct{.}}\hspace\labelsep\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+\def\Box{\hskip1ex\vbox{\hrule height0.6pt\hbox{%
+      \vrule height1.3ex width0.6pt\hskip0.8ex
+      \vrule width0.6pt}\hrule height0.6pt
+  }}
+\renewcommand{\qed}{\Box}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\purple}[1]{\textcolor{magenta}{#1}}
+\newcommand{\ddet}{\text{det}}
+\renewcommand{\pmod}[1]{\text{ (mod $#1$)}}
+\newcommand{\mmod}[2]{#1\text{ mod }#2}
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\LL}{\mathscr{G}}
+\newcommand{\z}{\mathbin{\ooalign{$\hidewidth i \hidewidth$\cr$\phantom{+}$}}}
+\newcommand{\y}{\mathbin{\ooalign{$\hidewidth j \hidewidth$\cr$\phantom{+}$}}}
+\newcommand{\gf}{\text{GF}}
+
+\newcolumntype{R}{>{\scriptsize}r}
+\newcolumntype{L}{>{\scriptsize}l}
+\newcolumntype{C}{>{\scriptsize}c}
+
+\renewcommand{\citenumfont}[1]{\textbf{#1}}
+\renewcommand{\bibnumfmt}[1]{\textbf{#1.}}
+
+\titleformat{\section}{\normalfont\Large\bfseries\centering}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection.}{0.5em}{}
+
+\newenvironment{myabstract}{\vspace{1em}\begin{adjustwidth}{3em}{3em}\begin{small}\textbf{Abstract.}}{\end{small}\end{adjustwidth}\vspace{1em}}
+\newenvironment{mykeywords}{\vspace{1em}\begin{adjustwidth}{3em}{3em}\begin{small}\textbf{Keywords.}}{\end{small}\end{adjustwidth}\vspace{1em}}
+
+\DeclareCaptionLabelSeparator{custom}{.}
+\DeclareCaptionLabelFormat{custom}
+{%
+  \textsc{#1 #2}
+}
+\DeclareCaptionFormat{custom}
+{%
+  #1#2 #3
+}
+\captionsetup
+{
+  format=custom,%
+  labelformat=custom,%
+  labelsep=custom
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Math 340 Tutorial \\ November 24$^{\text{th}}$}
+\end{center}
+
+\noindent{\bf Question 1.} Let $K$ be a finite degree extension of a finite
+field $F$. Show there exists and element $a \in K$ for which $K=F(a)$. \\
+
+\noindent{\bf Question 2.} How many primitive elements of $GF(81)$ are there? Of
+$\gf(32)$? \\
+
+\noindent{\bf Question 3.} Determine the finite fields whose largest proper
+subfield is $\gf(2^5)$. \\
+
+\noindent{\bf Question 4.} Let $\alpha,\beta \in \gf(81)$ with $\abs{\alpha}=5$
+and $\abs{\beta}=16$. Show that $\alpha\beta$ is a primitive element. \\
+
+\noindent{\bf Question 5.} Let $p$ be an odd prime, and let $a \in \gf(p)$ be
+a nonsquare. Show that $a$ is a square in $\gf(p^n)$ if $n$ is even, and $a$ is
+a nonsquare in $\gf(p^n)$ if $n$ is odd. \\
+
+Define $f \in F[x]$ by $f(x)=x^n-1$. The roots of $f$ are the $n$-roots of unity
+over $F$, and the splitting field $F^{(n)}$ of $f$ over $F$ is the $n$-th
+cyclotomic field (over $F$). Use $E^{(n)}$ to denote the roots of $f$. \\
+
+\noindent{\bf Question 6.} Suppose that $\text{char}(F)=p$, a prime. Show:
+\begin{enumerate*}[{\bf(a)}]
+\item If $(p,n)=1$, then $E^{(n)}$ is a multiplicative cyclic group of order
+  $n$.
+\item If $p \mid n$, write $n=mp^e$ with $(p,m)=1$. Then $F^{(m)}=F^{(n)}$ and
+  $E^{(m)}=E^{(n)}$, and the roots of $f$ in $F^{(n)}$ are the elements of
+  $E^{(m)}$ each with multiplicity $p^e$.
+\end{enumerate*} \\
+
+Suppose that $(p,n)=1$, and let $\zeta$ be a generator of $E^{(n)}$. The
+polynomial
+\[
+  Q_n(x) = \prod_{\begin{smallmatrix}s=1 \\ (s,n)=1 \end{smallmatrix}}^n(x-\zeta^s)
+\]
+
+\noindent is called the $n$-th cyclotomic polynomial over $F$. \\
+
+\noindent{\bf Question 7.} Show:
+\begin{enumerate}[{\bf (a)}]
+\item $x^n-1 = \prod_{d \mid n}Q_d(x)$.
+
+\item $Q_n(x) = \prod_{d \mid n}(x-1)^{\mu(n/d)}$.
+
+\item $Q_{p^k}(x)=1+x^{p^{k-1}}+x^{2p^{k-1}}+\cdots+x^{(p-1)p^{k-1}}$.
+
+\item If $F=\gf(q)$ with $(q,n)=1$, then $Q_n$ factors into $\phi(n)/d$ distinct
+  monic irreducible polynomials in $F[x]$ of the same degree $d$, $F^{(n)}$ is
+  the splitting field of any such factor over $F$, and $[F^{(n)}:F]=d$, where
+  $d$ is multiplicative order of $q$ modulo $n$.
+\end{enumerate}
+
+\noindent{\bf Question 8.} Let $f \in \gf(q)[x]$ have degree $m$ with $f(0) \neq
+0$. Show there exists a positive integer $e \leqq q^m-1$ such that $f$ divides
+$x^e-1$. \\
+
+For a polynomial $f \in \gf(q)[x]$ with $f(0) \neq 0$, the order $\text{ord}(f)$
+of $f$ is the smallest positive integer $e$ for which $f \mid x^e-1$. If $x \mid
+f$, write $f=x^ag$ with $g(0) \neq 0$. We then define $\text{ord}(f) \equiv
+\text{ord}(g)$. \\
+
+\noindent{\bf Question 9.} Let $f \in \gf(q)[x]$ be irreducible of degree $m$
+with $f(0) \neq 0$. Show that $\text{ord}(f)$ is the multiplicative order of any
+one of its roots in $\gf(q^m)$. Show additionally that $\text{ord}(f) \mid
+q^m-1$. \\
+
+\noindent{\bf Question 10.} Show the number of monic irreducible polynomials in
+$\gf(q)[x]$ of degree $m$ and order $e$ is $\phi(e)/m$ if $e \geqq 2$ and $m$ is
+the multiplicative order of $q$ modulo $e$, equal to 2 if $m=e=1$, and equal to
+0 in all other cases. \\
+
+\noindent{\bf Question 11.} Show that $f \in \gf(q)[x]$ is an irreducible factor
+of $x^{q^n}-x$ if and only if $\text{deg}(f) \mid n$. Moreover, show that the
+product of all irreducible polynomials whose degree divides $n$ is equal to
+$x^{q^n}-x$. \\
+
+\noindent{\bf Question 12.} Let $N_q(n)$ be the number of irreducible
+polynomials over $\gf(q)$ of degree $n$. Show that
+\[
+  N_q(n) = \sum_{d \mid n}\mu(n)q^{n/d}.
+\]
+
+\noindent{\bf Question 13.} Let $I(q,n,x)$ be the product of all irreducible
+polynomials in $\gf(q)[x]$ of degree $n$. Show that
+\[
+  I(q,n,x) = \prod_{d \mid n}(x^{q^d}-x)^{\mu(n/d)} = \prod Q_m(x)
+\]
+
+\noindent where the product is extended over all divisor $m$ of $q^n-1$ such
+that $n$ is multiplicative order of $q$ modulo $m$.
+
+\end{document}
+
